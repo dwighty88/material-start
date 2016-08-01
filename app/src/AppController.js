@@ -1,11 +1,10 @@
 /**
  * Main App Controller for the Angular Material Starter App
- * @param $scope
+ * @param UsersDataService
  * @param $mdSidenav
- * @param avatarsService
  * @constructor
  */
-function UsersController(usersService, $mdSidenav) {
+function AppController(UsersDataService, $mdSidenav) {
   var self = this;
 
   self.selected     = null;
@@ -15,7 +14,7 @@ function UsersController(usersService, $mdSidenav) {
 
   // Load all registered users
 
-  usersService
+  UsersDataService
         .loadAllUsers()
         .then( function( users ) {
           self.users    = [].concat(users);
@@ -42,5 +41,5 @@ function UsersController(usersService, $mdSidenav) {
   }
 }
 
-export default [ 'usersService', '$mdSidenav', UsersController ];
+export default [ 'UsersDataService', '$mdSidenav', AppController ];
 

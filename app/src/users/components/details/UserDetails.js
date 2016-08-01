@@ -17,9 +17,9 @@ class UserDetailsController  {
 
     $mdBottomSheet.show({
       parent: angular.element(document. getElementById('content')),
-      templateUrl: 'src/users/view/contactSheet.html',
+      templateUrl: 'src/users/components/details/ContactSheet.html',
       controller: [ '$mdBottomSheet', UserSheetController],
-      controllerAs: "vm",
+      controllerAs: "$ctrl",
       bindToController : true
     }).then((clickedItem) => {
       this.$log.debug( clickedItem.name + ' clicked!');
@@ -48,7 +48,7 @@ export default {
   name: 'userDetails',
   config: {
     bindings: { selected: '<' },
-    templateUrl: 'src/users/details/UserDetails.html',
+    templateUrl: 'src/users/components/details/UserDetails.html',
     controller: [ '$mdBottomSheet', '$log', UserDetailsController ]
   }
 }
